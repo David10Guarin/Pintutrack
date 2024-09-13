@@ -12,16 +12,16 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('welcome',compact('productos'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
-    }
+        return view('create',compact('productos'));
+     }
 
     /**
      * Store a newly created resource in storage.
