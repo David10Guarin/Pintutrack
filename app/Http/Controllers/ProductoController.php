@@ -18,8 +18,9 @@ class ProductoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(producto $productos)
     {
+        $productos = Producto::all();
         return view('create',compact('productos'));
      }
 
@@ -34,9 +35,10 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $producto)
+    public function show(Request $producto)
     {
-        //
+        $productos = Producto::all();
+        return view('show',compact('productos'));
     }
 
     /**
