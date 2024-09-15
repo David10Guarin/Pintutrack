@@ -13,15 +13,14 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view('welcome',compact('productos'));
+        return view('productos.index',compact('productos'));
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create(producto $productos)
     {
-        $productos = Producto::all();
-        return view('create',compact('productos'));
+        return view('productos.create');
      }
 
     /**
@@ -29,7 +28,8 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Producto::create($request->all());
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -37,8 +37,8 @@ class ProductoController extends Controller
      */
     public function show(Request $producto)
     {
-        $productos = Producto::all();
-        return view('show',compact('productos'));
+
+        return view('productos.show',compact('productos'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -54,7 +54,8 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        $producto->update($request->all());
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -62,6 +63,7 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.index');
     }
 }

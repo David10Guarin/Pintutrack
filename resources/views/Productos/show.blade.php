@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tabla de productos</title>
-    @vite("resources/css/app.css")
-</head>
-<body>
-    @extends('layouts.app')
-    @include('layouts.navbar')
+@extends('layouts.app')
+
+@section('titulo', 'Mis productos | Mostrar producto')
+@section('cabecera', 'mostrar producto')
+
+@section('contenido')
+
+
 
 <h1 class="text-red-800"> Tabla de productos completa</h1>
 
@@ -38,5 +34,4 @@
             </tbody>
         </table>
     </div>
-</body>
-</html>
+@endsection
